@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<link
+			rel="stylesheet"
+			href="style.css"
+		/>
+		<title>Pomodoro | Timer</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="wrapper">
+				<div class="display">
+					<p>SESSION 1</p>
+					<div class="time">
+						<h1>25:00</h1>
+					</div>
+				</div>
+				<div class="start">
+					<button>
+						<span>START</span>
+						<img
+							src="assets/play-button.png"
+							alt="play"
+						/>
+					</button>
+				</div>
+				<div class="reset">
+					<button>
+						<span>RESET</span>
+						<img
+							src="assets/reset.png"
+							alt="reset"
+						/>
+					</button>
+				</div>
+				<div class="music-voice">
+					<button>
+						<img
+							src="assets/sound.png"
+							alt="sound"
+						/>
+					</button>
+				</div>
+				<div class="dropdown">
+					<button class="dropdown-btn">
+						<img
+							src="assets/settings.png"
+							alt="settings"
+						/>
+					</button>
+
+					<div class="dropdown-content">
+						<h1>Settings</h1>
+						<div class="delete">
+							<button>X</button>
+						</div>
+						<div class="range-music">
+							<img
+								src="assets/sound.png"
+								alt="range-music"
+							/>
+							<input type="range" />
+						</div>
+						<div class="length-options">
+							<p>Length Options</p>
+							<button>10</button>
+							<button>25</button>
+							<button>60</button>
+							<button>90</button>
+							<button>120</button>
+						</div>
+						<div class="break-length">
+							<p>Break Length</p>
+							<button>5</button>
+							<button>10</button>
+							<button>15</button>
+							<button>30</button>
+							<button>60</button>
+						</div>
+						<div class="session-goal">
+							<p>
+								Session Goal
+								<span>2</span>
+							</p>
+							<input type="range" />
+						</div>
+						<div class="pets">
+							<p>Pets</p>
+							<button>CAT</button>
+							<button>DOG</button>
+							<button>PANDA</button>
+							<br />
+							<button>BUNNY</button>
+							<button>WOLF</button>
+							<button>BEAR</button>
+						</div>
+						<div class="cancel">
+							<button>CANCEL</button>
+						</div>
+						<div class="apply">
+							<button>APPLY</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script
+			type="module"
+			src="pomodoro.js"
+		></script>
+	</body>
+</html>

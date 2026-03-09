@@ -1,0 +1,555 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: lightgray;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.wrapper {
+	width: 350px;
+	height: 420px;
+	border: 2px solid gray;
+	border-radius: 30px;
+	background: gray;
+}
+
+.display {
+	display: grid;
+	place-content: center;
+	position: relative;
+	top: 5px;
+	left: 5px;
+	border: 8px solid #000;
+	border-radius: 30px;
+	width: 335px;
+	height: 250px;
+	background: rgba(120, 255, 160, 0.3);
+	overflow: hidden;
+	animation: vhsFlicker 0.15s infinite;
+}
+
+.display p {
+	position: relative;
+	top: -45px;
+	left: 60px;
+	color: #1a1a1a;
+}
+
+.display h1 {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	position: relative;
+	top: -50px;
+	font-size: 80px;
+	color: #1a1a1a;
+}
+
+.display::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+
+	background: repeating-linear-gradient(
+		to bottom,
+		rgba(0, 255, 100, 0.15) 0px,
+		rgba(0, 255, 100, 0.15) 2px,
+		transparent 2px,
+		transparent 4px
+	);
+
+	pointer-events: none;
+}
+
+.display::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+
+	background: linear-gradient(
+		transparent 0%,
+		rgba(255, 255, 255, 0.04) 50%,
+		transparent 100%
+	);
+
+	animation: vhsRoll 8s linear infinite;
+}
+
+@keyframes vhsFlicker {
+	0% {
+		opacity: 0.97;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0.98;
+	}
+}
+
+@keyframes vhsRoll {
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(100%);
+	}
+}
+
+.start button {
+	position: relative;
+	top: 20px;
+	left: 20px;
+	width: 150px;
+	height: 70px;
+	border: 1px solid #000;
+	border-radius: 15px;
+	background-color: rgba(255, 0, 0, 1);
+	box-shadow: 5px 5px 10px rgba(139, 0, 0, 0.7);
+}
+
+.start span {
+	position: relative;
+	top: -20px;
+	left: -30px;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+	color: #fff;
+}
+
+.start img {
+	position: relative;
+	top: 15px;
+	left: 25px;
+	width: 25px;
+	filter: invert(100%) brightness(200%);
+}
+
+.start button:hover {
+	cursor: pointer;
+	transition: all 0.3s ease-in;
+	transform: scale(1.05);
+}
+
+.reset button {
+	position: relative;
+	top: -50px;
+	left: 180px;
+	width: 150px;
+	height: 70px;
+	border: 1px solid #000;
+	border-radius: 15px;
+	background-color: rgba(51, 51, 51, 1);
+	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+	padding: 20px;
+}
+
+.reset span {
+	position: relative;
+	top: -20px;
+	left: -30px;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+	color: #fff;
+}
+
+.reset img {
+	position: relative;
+	top: 15px;
+	left: 25px;
+	width: 25px;
+	filter: invert(100%) brightness(200%);
+}
+
+.reset button:hover {
+	cursor: pointer;
+	transition: all 0.3s ease-in;
+	transform: scale(1.05);
+}
+
+.music-voice button {
+	position: relative;
+	top: -30px;
+	left: 30px;
+	width: 34px;
+	height: 32px;
+	border: 1px solid #000;
+	border-radius: 6px;
+	box-shadow: 0, 0, 0, 0.1;
+	background-color: rgba(51, 51, 51, 1);
+	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.music-voice img {
+	width: 20px;
+	filter: invert(100%) brightness(200%);
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-btn {
+	position: absolute;
+	top: -680px;
+	left: 1000px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-btn img {
+	width: 20px;
+}
+
+.dropdown-content {
+	position: absolute;
+	top: -630px;
+	left: 780px;
+
+	min-width: 255px;
+	max-height: 550px;
+	overflow-y: auto;
+
+	width: 50px;
+	height: 900px;
+	background: white;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	padding: 10px;
+
+	display: none;
+	z-index: 1000;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content h1 {
+	display: block;
+	text-decoration: none;
+	color: black;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+	font-size: 20px;
+	margin-top: 5px;
+	margin-left: 5px;
+	border-radius: 5px;
+}
+
+.dropdown-content .delete button {
+	position: relative;
+	top: -30px;
+	left: 180px;
+	width: 40px;
+	height: 40px;
+	background: transparent;
+	border: 1px solid #fff;
+	border-radius: 20px;
+	font-size: 20px;
+}
+
+.dropdown-content .range-music img {
+	position: relative;
+	top: -20px;
+	left: 10px;
+	width: 20px;
+	height: 20px;
+}
+
+.dropdown-content .range-music input[type='range'] {
+	position: relative;
+	top: -22px;
+	left: 20px;
+	width: 170px;
+	accent-color: #1a1a1a;
+}
+
+.dropdown-content .length-options p {
+	color: gray;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+	margin-left: 5px;
+}
+
+.dropdown-content .length-options button {
+	border: 1px solid #fff;
+	border-radius: 20px;
+	margin-top: 5px;
+	width: 40px;
+	height: 40px;
+	color: #1a1a1a;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+}
+
+.dropdown-content .break-length button:hover {
+	cursor: pointer;
+	transition: all 0.3s ease;
+	background-color: #1a1a1a;
+	color: #fff;
+}
+
+.dropdown-content .break-length p {
+	color: gray;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+	margin-left: 5px;
+	margin-top: 20px;
+}
+
+.dropdown-content .break-length button {
+	border: 1px solid #fff;
+	border-radius: 20px;
+	margin-top: 5px;
+	width: 40px;
+	height: 40px;
+	color: #1a1a1a;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+}
+
+.dropdown-content .session-goal p {
+	color: gray;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+	margin-left: 5px;
+	margin-top: 20px;
+}
+
+.dropdown-content .session-goal input[type='range'] {
+	position: relative;
+	top: 5px;
+	left: 5px;
+	width: 205px;
+	accent-color: #1a1a1a;
+}
+
+.dropdown-content .session-goal span {
+	margin-left: 110px;
+	color: #1a1a1a;
+}
+
+.dropdown-content .length-options button:hover {
+	cursor: pointer;
+	transition: all 0.3s ease;
+	background-color: #1a1a1a;
+	color: #fff;
+}
+
+.dropdown-content .pets button {
+	border: 1px solid #fff;
+	border-radius: 20px;
+	margin-top: 10px;
+	width: 70px;
+	height: 40px;
+	color: #1a1a1a;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+}
+
+.dropdown-content .pets button:hover {
+	cursor: pointer;
+	transition: all 0.3s ease;
+	background-color: #1a1a1a;
+	color: #fff;
+}
+
+.dropdown-content .pets p {
+	color: gray;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+	margin-left: 8px;
+	margin-top: 10px;
+}
+
+.dropdown-content .cancel button {
+	border: 1px solid #fff;
+	border-radius: 20px;
+	margin-top: 50px;
+	margin-left: 0px;
+	width: 80px;
+	height: 40px;
+	color: #1a1a1a;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+}
+
+.dropdown-content .apply button {
+	position: relative;
+	top: -40px;
+	border: 1px solid #fff;
+	border-radius: 20px;
+	margin-left: 140px;
+	background-color: rgba(51, 51, 51, 1);
+	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+	width: 80px;
+	height: 40px;
+	color: #ffffff;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+}
+
+.dropdown-content .apply button:hover {
+	transition: all 0.3s ease;
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+.dropdown-content a:hover {
+	background-color: #f0f0f0;
+}
+
+.dropdown.active .dropdown-content {
+	display: block;
+}
+
+@media (max-width: 1440px) {
+	.dropdown-btn {
+		position: relative;
+		top: -650px;
+		left: 800px;
+		background-color: #fff;
+		border: 1px solid #fff;
+		box-shadow: 5px 0px 20px 0 #fff;
+		border-radius: 20px;
+		width: 40px;
+		height: 40px;
+		cursor: pointer;
+	}
+}
