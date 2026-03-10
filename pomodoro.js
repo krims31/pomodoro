@@ -4,6 +4,10 @@ const resetBtn = document.querySelector('.reset button')
 const dropdown = document.querySelector('.dropdown')
 const musicBtn = document.querySelector('.play-btn')
 const rangeMusic = document.querySelector('.range-music input')
+const lengthOptions = document.querySelectorAll('.length-options button')
+const breakLength = document.querySelectorAll('.break-length button')
+const sessionGoal = document.querySelector('.session-goal input')
+const sessionGoalSpan = document.querySelector('.session-goal span')
 
 let time = 25 * 60
 let timerInterval
@@ -12,10 +16,28 @@ const audio = new Audio(
 	'assets/music/Ghostrifter-Official-Purple-Dream(chosic.com).mp3'
 )
 
+sessionGoal.addEventListener('input', () => {
+	sessionGoalSpan.textContent = sessionGoal.value
+})
+
 rangeMusic.addEventListener('input', () => {
 	if (audio) {
 		audio.volume = rangeMusic.value / 100
 	}
+})
+
+lengthOptions.forEach(option => {
+	option.addEventListener('click', () => {
+		time = option.textContent * 60
+		displayUpdate()
+	})
+})
+
+breakLength.forEach(length => {
+	length.addEventListener('click', () => {
+		time = length.textContent * 60
+		displayUpdate()
+	})
 })
 
 function dropDownToggle() {
@@ -58,9 +80,5 @@ startBtn.addEventListener('click', start)
 resetBtn.addEventListener('click', reset)
 dropdown.addEventListener('click', dropDownToggle)
 musicBtn.addEventListener('click', () => {
-	if (audio.paused) {
-		audio.play()
-	} else {
-		audio.pause()
-	}
+	audio.paused ? audio.play() : audio.pause()
 })
