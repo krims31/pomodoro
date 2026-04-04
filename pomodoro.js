@@ -40,6 +40,10 @@ breakLength.forEach(length => {
 	})
 })
 
+function audioToggle() {
+	audio.paused ? audio.play() : audio.pause()
+}
+
 function dropDownToggle() {
 	if (dropdown.classList.contains('active')) {
 		dropdown.classList.remove('active')
@@ -50,8 +54,11 @@ function dropDownToggle() {
 function displayUpdate() {
 	const minutes = Math.floor(time / 60)
 	const seconds = time % 60
+	const timeString = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
 
-	displayTime.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
+	displayTime.textContent = timeString
+
+	document.title = timeString
 }
 
 function start() {
@@ -79,6 +86,4 @@ function reset() {
 startBtn.addEventListener('click', start)
 resetBtn.addEventListener('click', reset)
 dropdown.addEventListener('click', dropDownToggle)
-musicBtn.addEventListener('click', () => {
-	audio.paused ? audio.play() : audio.pause()
-})
+musicBtn.addEventListener('click', audioToggle)
